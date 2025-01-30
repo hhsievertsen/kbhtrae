@@ -12,3 +12,8 @@ table(df_EmdrupSoe$dansk_navn)
 table(df_EmdrupSoe$slaegtsnavn)
 table(df_EmdrupSoe$slaegt)
 View(df_EmdrupSoe)
+
+dfselect<-df_EmdrupSoe[,c("dansk_navn","traeart","wkb_geometry","planteaar")]
+dfselect<-dfselect[dfselect$dansk_navn!="",]
+View(dfselect)
+g
