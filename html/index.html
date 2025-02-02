@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kbh Træ v. 0.01</title>
+    <title>Map of Copenhagen</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <style>
@@ -15,63 +15,31 @@
     <div id="map"></div>
     
     <script>
-        var map = L.map('map').setView([55.722556507938684    , 12.552609823535448], 16);
+        var map = L.map('map').setView([55.6761, 12.5683], 12);
         
-        L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png', {
-            attribution: '<a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> '
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 15,
+            minZoom: 10
         }).addTo(map);
         
-        var coordinates = [
-{coords:  [ 55.722556507938684    , 12.552609823535448], label: "Guldhængepil, plantet      2016"},
-{coords:  [ 55.721675156561034    , 12.547660920960915], label: "Guldhængepil, plantet      2024"},
-{coords:  [ 55.721562704596685    , 12.547949121478366], label: "Stilk-eg, plantet          2024"},
-{coords:  [ 55.72157809593656     , 12.548016599888129], label: "Koreakornel, plantet       2018"},
-{coords:  [ 55.7219625860585      , 12.545814080529405], label: "Glansbladet tjørn, plantet 2021"},
-{coords:  [ 55.72200497774806     , 12.545738588330355], label: "Glansbladet tjørn, plantet 2021"},
-{coords:  [ 55.7220691981144      , 12.545666695310192], label: "Kirsebærkornel, plantet    2021"},
-{coords:  [ 55.72213452237155     , 12.545714719052082], label: "Kirsebærkornel, plantet    2021"},
-{coords:  [ 55.722203797272755    , 12.545784150301111], label: "Skovæble, plantet          2021"},
-{coords:  [ 55.722169021235004    , 12.545785852906587], label: "Skovæble, plantet          2021"},
-{coords:  [ 55.72257583486352     , 12.546241766372601], label: "Skovæble, plantet          2021"},
-{coords:  [ 55.72254070629969     , 12.546265925192873], label: "Skovæble, plantet          2021"},
-{coords:  [ 55.722564952641996    , 12.546310196067852], label: "Skovæble, plantet          2021"},
-{coords:  [ 55.7226025808851      , 12.553346932685729], label: "Ahorn, plantet             1900"},
-{coords:  [ 55.722075128027484    , 12.546440906060353], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.72204206916924     , 12.546364387876332], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.72201129726768     , 12.546424086592046], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.72254604243141     , 12.546622017262708], label: "Almindelig ask, plantet    1930"},
-{coords:  [ 55.72171444889657     , 12.548023324135594], label: "Pil, plantet               1900"},
-{coords:  [ 55.72261577657449     , 12.54654281806925 ], label: "Almindelig ask, plantet    1930"},
-{coords:  [ 55.722025919747466    , 12.545772870972003], label: "Birk, plantet              1960"},
-{coords:  [ 55.72151437021352     , 12.548800191066624], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.721520584127475    , 12.548622508645657], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.72156434385183     , 12.5485424588459  ], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.722326182645574    , 12.546216590618446], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.722289455093076    , 12.546311477143536], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.72236134179378     , 12.546279233055145], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.722009892592745    , 12.5461108234683  ], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.721990889962356    , 12.546188300795267], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.721955340134976    , 12.546113299240462], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.72250154322181     , 12.546779648437921], label: "Guldhængepil, plantet      2016"},
-{coords:  [ 55.72168462897225     , 12.546489692596586], label: "Stilk-eg, plantet          2016"},
-{coords:  [ 55.72172700232264     , 12.546570263175449], label: "Stilk-eg, plantet          2016"},
-{coords:  [ 55.7228530858827      , 12.554025784116218], label: "Guldhængepil, plantet      2016"},
-{coords:  [ 55.723208856954216    , 12.553844333027392], label: "Guldhængepil, plantet      2016"},
-{coords:  [ 55.72255912904789     , 12.552675846559291], label: "Guldhængepil, plantet      2016"},
-{coords:  [ 55.721544206300415    , 12.548516629380208], label: "Skovfyr, plantet           2016"},
-{coords:  [ 55.72356596088416     , 12.55159889267153 ], label: "Bøg, plantet               NA"},
-{coords:  [ 55.72344264536857     , 12.55292839943333 ], label: "Lind, plantet              NA"},
-{coords:  [ 55.72158679888891     , 12.547927797685507], label: "Koreakornel, plantet       2018"},
-{coords:  [ 55.723703725649       , 12.55107703101188 ], label: "Lind, plantet              NA"},
-{coords:  [ 55.72342715084107     , 12.551994204376715], label: "Pil, plantet               NA"},
-{coords:  [ 55.72343359060842     , 12.552441613425678], label: "Bøg, plantet               NA"}
-
-
-        ];
-        
-        coordinates.forEach(point => {
-            L.marker(point.coords).addTo(map).bindPopup(point.label).openPopup();
+        var greenIcon = L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
         });
+        
+        fetch('coordinates.json')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(point => {
+                    L.marker(point.coords, { icon: greenIcon }).addTo(map).bindPopup(point.label);
+                });
+            })
+            .catch(error => console.error('Error loading JSON:', error));
     </script>
 </body>
 </html>
